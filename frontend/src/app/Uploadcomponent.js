@@ -51,8 +51,8 @@ const UploadComponent = () => {
         Upload
       </button>
       {ipfsHash && (
-        <div className="mt-4 bg-gray-100 p-4 rounded-lg">
-          <p className="text-lg font-medium text-white">
+        <div className="mt-4 bg-black p-4 rounded-lg">
+          <p className="text-lg font-medium font-mono text-white">
             IPFS Hash: {ipfsHash}
           </p>
         </div>

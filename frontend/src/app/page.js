@@ -191,7 +191,7 @@ export default function Home() {
                   Question Paper Hash: {singlequestionPaperHash}
                 </p>
                 <button
-                  className="mt-2 bg-black font-mono text-white py-1 px-2 rounded-lg hover:bg-green-600 transition duration-200"
+                  className="mt-2 bg-black font-mono text-white py-1 px-2 rounded-lg hover:bg-white hover:text-black transition duration-200"
                   onClick={() => {
                     navigator.clipboard.writeText(singlequestionPaperHash);
                   }}
