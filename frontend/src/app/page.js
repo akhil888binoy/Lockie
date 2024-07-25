@@ -73,21 +73,18 @@ export default function Home() {
   if (!isMounted) return null;
   if (!isConnected)
     return (
-      <div className={`${inter.className} bg-[url('/mainbackground.jpg')]`}>
-        <Head>
-          <title>Lockie Dapp</title>
-          <meta name="description" content="Lockie Dapp" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+      <div
+        className={`${inter.className} bg-[url('/mainbackground.jpg')] bg-cover bg-center min-h-screen`}
+      >
         <div className="container mx-auto p-4">
-          <div className="container mx-auto p-4">
-            <h1 class="text-9xl font-mono font-semibold text-white text-center mb-8 ">
+          <div className="text-center mb-8">
+            <h1 className="text-9xl font-mono font-semibold text-white">
               Lockie
             </h1>
           </div>
-          <div className="flex justify-between mt-10 ">
-            <div className="w-1/2">
-              <p className="text-white font-mono">
+          <div className="flex justify-between items-center mt-10 bg-black bg-opacity-50 p-6 rounded-lg shadow-lg">
+            <div className="w-3/5">
+              <p className="text-white font-mono text-lg leading-relaxed">
                 Welcome to Lockie – the decentralized solution for securely
                 storing and retrieving question papers. Our platform leverages
                 the power of IPFS and blockchain technology to ensure that your
@@ -98,9 +95,9 @@ export default function Home() {
                 storage and enjoy a seamless, tamper-proof experience with
                 Lockie.
               </p>
-            </div>
-            <div>
-              <ConnectButton />
+              <div className="mt-5">
+                <ConnectButton />
+              </div>
             </div>
           </div>
         </div>
