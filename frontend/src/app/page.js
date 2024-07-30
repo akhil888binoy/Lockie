@@ -78,13 +78,13 @@ export default function Home() {
       >
         <div className="container mx-auto p-4">
           <div className="text-center mb-8">
-            <h1 className="text-9xl font-mono font-semibold text-white">
+            <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-mono font-semibold text-white">
               Lockie
             </h1>
           </div>
-          <div className="flex justify-between items-center mt-10 bg-black bg-opacity-50 p-6 rounded-lg shadow-lg">
-            <div className="w-3/5">
-              <p className="text-white font-mono text-lg leading-relaxed">
+          <div className="flex flex-col lg:flex-row justify-between items-center mt-10 bg-black bg-opacity-50 p-6 rounded-lg shadow-lg">
+            <div className="w-full lg:w-3/5">
+              <p className="text-white font-mono text-base sm:text-lg md:text-xl leading-relaxed">
                 Welcome to Lockie – the decentralized solution for securely
                 storing and retrieving question papers. Our platform leverages
                 the power of IPFS and blockchain technology to ensure that your
@@ -95,7 +95,7 @@ export default function Home() {
                 storage and enjoy a seamless, tamper-proof experience with
                 Lockie.
               </p>
-              <div className="mt-5">
+              <div className="mt-5 flex justify-center lg:justify-start">
                 <ConnectButton />
               </div>
             </div>
@@ -106,21 +106,23 @@ export default function Home() {
   console.log(address);
 
   return (
-    <div className={`${inter.className} bg-[url('/mainbackground.jpg')]`}>
+    <div
+      className={`${inter.className} bg-[url('/mainbackground.jpg')] min-h-screen bg-cover bg-center`}
+    >
       <Head>
         <title>Lockie Dapp</title>
         <meta name="description" content="Lockie Dapp" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="container mx-auto p-4">
-        <div className="container mx-auto p-4">
-          <h1 class="text-9xl font-mono font-semibold text-white text-center mb-8 ">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-mono font-semibold text-white">
             Lockie
           </h1>
         </div>
-        <div className="flex justify-between mt-10 ">
-          <div className="w-1/2">
-            <p className="text-white font-mono">
+        <div className="flex flex-col lg:flex-row justify-between items-start mt-10 space-y-6 lg:space-y-0 lg:space-x-6">
+          <div className="w-full lg:w-1/2">
+            <p className="text-white font-mono text-base sm:text-lg md:text-xl leading-relaxed">
               Welcome to Lockie – the decentralized solution for securely
               storing and retrieving question papers. Our platform leverages the
               power of IPFS and blockchain technology to ensure that your
@@ -131,24 +133,18 @@ export default function Home() {
               enjoy a seamless, tamper-proof experience with Lockie.
             </p>
           </div>
-          <div>
+          <div className="w-full lg:w-auto">
             <UploadComponent />
           </div>
         </div>
 
-        <div className="flex justify-between mt-10">
-          <div
-            className="h-full w-1/2 mt-7 rounded-md p-6 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 "
-            style={{
-              backgroundColor: "rgba(255, 255, 255, 0.1)",
-              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            }}
-          >
+        <div className="flex flex-col lg:flex-row justify-between mt-10 space-y-6 lg:space-y-0 lg:space-x-6">
+          <div className="w-full lg:w-1/2 rounded-md p-6 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 bg-black bg-opacity-50 shadow-lg">
             <label className="block text-lg font-medium mb-2 text-white font-mono">
               Add Question Paper Hash:
             </label>
             <input
-              className="w-full p-2 text-white  rounded-lg mb-4 bg-black bg-opacity-100 placeholder-gray-500"
+              className="w-full p-2 text-white rounded-lg mb-4 bg-black bg-opacity-70 placeholder-gray-500"
               placeholder="Add Question Paper Hash"
               type="string"
               onChange={(e) => setQuestionPaperHash(e.target.value)}
@@ -161,30 +157,19 @@ export default function Home() {
               {loading ? "Adding..." : "Add"}
             </button>
           </div>
-          <div
-            className="h-full mt-8 ml-6 w-1/2 rounded-md p-6 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 "
-            style={{
-              backgroundColor: "rgba(255, 255, 255, 0.1)",
-              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            }}
-          >
+          <div className="w-full lg:w-1/2 rounded-md p-6 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 bg-black bg-opacity-50 shadow-lg">
             <label className="block text-lg font-medium font-mono mb-2 text-white">
               Index of Question Paper:
             </label>
             <input
-              className="w-full p-2  text-white rounded-lg mb-4 bg-black bg-opacity-100 placeholder-gray-500"
+              className="w-full p-2 text-white rounded-lg mb-4 bg-black bg-opacity-70 placeholder-gray-500"
               placeholder="Index of Question Paper"
               type="number"
               onChange={(e) => setQuestionPaperIndex(Number(e.target.value))}
             />
             {singlequestionPaperHash && (
-              <div
-                className="h-full w-full rounded-md p-6 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 "
-                style={{
-                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                }}
-              >
-                <p className="text-lg font-mono text-white">
+              <div className="mt-4 p-4 rounded-md bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-30 bg-black bg-opacity-50 shadow-lg">
+                <p className="text-lg font-mono break-words text-white">
                   Question Paper Hash: {singlequestionPaperHash}
                 </p>
                 <button
@@ -200,8 +185,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="flex justify-between mt-20 space-x-4">
-          <div className="space-y-4 w-1/2">
+        <div className="flex flex-col lg:flex-row justify-between mt-20 space-y-6 lg:space-y-0 lg:space-x-6">
+          <div className="w-full lg:w-1/2 space-y-4">
             <h2 className="text-2xl font-mono text-white mb-4">
               Your Question Paper Hashes
             </h2>
@@ -213,39 +198,35 @@ export default function Home() {
                 <p className="font-semibold">
                   Question Paper Hash Index: {index}
                 </p>
-                <p>{t}</p>
+                <p className="break-words">{t}</p>
               </div>
             ))}
           </div>
 
-          <div className="w-1/2">
+          <div className="w-full lg:w-1/2 space-y-4">
             {singlequestionPaperHash && (
-              <div className="space-y-4">
-                <div>
-                  <p className="font-semibold text-white font-mono">
-                    View the image:
-                  </p>
-                  <div>
-                    <img
-                      src={ipfsUrl}
-                      alt="IPFS content"
-                      className="w-full h-auto rounded-lg shadow-md"
-                    />
-                  </div>
-                  <button
-                    className="mt-2 bg-black text-white py-2 px-4 rounded-lg hover:bg-white hover:text-black border transition duration-200"
-                    onClick={() => {
-                      const link = document.createElement("a");
-                      link.href = ipfsUrl;
-                      link.download = "image.png";
-                      document.body.appendChild(link);
-                      link.click();
-                      document.body.removeChild(link);
-                    }}
-                  >
-                    Download Image
-                  </button>
-                </div>
+              <div>
+                <p className="font-semibold text-white font-mono">
+                  View the image:
+                </p>
+                <img
+                  src={ipfsUrl}
+                  alt="IPFS content"
+                  className="w-full h-auto rounded-lg shadow-md"
+                />
+                <button
+                  className="mt-2 bg-black text-white py-2 px-4 rounded-lg hover:bg-white hover:text-black border transition duration-200"
+                  onClick={() => {
+                    const link = document.createElement("a");
+                    link.href = ipfsUrl;
+                    link.download = "image.png";
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                  }}
+                >
+                  Download Image
+                </button>
               </div>
             )}
           </div>
